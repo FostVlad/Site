@@ -1,13 +1,7 @@
 package com.goloveschenko.site.dao;
 
 import com.goloveschenko.site.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-
-public interface IUserDao {
-    void addUser(User user);
-    void updateUser(User user);
-    void deleteUser(long id);
-    User getUserById(long id);
-    List<User> getUsers();
+public interface IUserDao extends JpaRepository<User, Long> {
 }

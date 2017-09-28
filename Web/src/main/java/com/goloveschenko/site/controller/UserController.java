@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/users")
 public class UserController {
-    private IUserService userService;
+    private final IUserService userService;
 
     @Autowired
     public UserController(IUserService userService) {
@@ -20,7 +20,7 @@ public class UserController {
     @GetMapping
     public String listUsers(Model model) {
         model.addAttribute("user", new User());
-        model.addAttribute("userList", userService.getUsers());
+        model.addAttribute("userList", userService.getAllUsers());
 
         return "users";
     }
@@ -46,7 +46,7 @@ public class UserController {
     @GetMapping("/edit/{id}")
     public String editUser(@PathVariable long id, Model model) {
         model.addAttribute("user", userService.getUserById(id));
-        model.addAttribute("userList", userService.getUsers());
+        model.addAttribute("userList", userService.getAllUsers());
 
         return "users";
     }

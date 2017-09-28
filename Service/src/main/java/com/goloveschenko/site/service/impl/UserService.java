@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 public class UserService implements IUserService {
-    private IUserDao userDao;
+    private final IUserDao userDao;
 
     @Autowired
     public UserService(IUserDao userDao) {
@@ -20,26 +20,26 @@ public class UserService implements IUserService {
 
     @Transactional
     public void addUser(User user) {
-        userDao.addUser(user);
+        userDao.save(user);
     }
 
     @Transactional
     public void updateUser(User user) {
-        userDao.updateUser(user);
+        userDao.save(user);
     }
 
     @Transactional
     public void deleteUser(long id) {
-        userDao.deleteUser(id);
+        userDao.delete(id);
     }
 
     @Transactional
     public User getUserById(long id) {
-        return userDao.getUserById(id);
+        return userDao.findOne(id);
     }
 
     @Transactional
-    public List<User> getUsers() {
-        return userDao.getUsers();
+    public List<User> getAllUsers() {
+        return userDao.findAll();
     }
 }

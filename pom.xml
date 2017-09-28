@@ -19,6 +19,7 @@
         <hibernate.version>4.2.1.Final</hibernate.version>
         <postgresql.version>9.4.1212</postgresql.version>
         <spring.version>4.3.11.RELEASE</spring.version>
+        <spring.data.version>1.11.7.RELEASE</spring.data.version>
         <dbcp.version>2.1.1</dbcp.version>
         <servlet.version>3.1.0</servlet.version>
         <jstl.version>1.2</jstl.version>
@@ -56,6 +57,12 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-aop</artifactId>
                 <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-jpa</artifactId>
+                <version>${spring.data.version}</version>
             </dependency>
 
             <!--HIBERNATE-->
